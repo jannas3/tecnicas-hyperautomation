@@ -1,0 +1,124 @@
+<mxfile host="app.diagrams.net" modified="2026-06-30T12:00:00.000Z" agent="Claude" version="24.0.0" type="device">
+  <diagram name="Portal Fake BPMN" id="portalFakeBpmn">
+    <mxGraphModel dx="1400" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- POOL -->
+        <mxCell id="pool1" value="Portal Fake &#8211; Processo de Cadastro" style="swimlane;html=1;startSize=20;horizontal=0;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="1280" height="560" as="geometry" />
+        </mxCell>
+
+        <!-- LANE 1: Usuário -->
+        <mxCell id="lane1" value="Usu&#225;rio" style="swimlane;html=1;startSize=20;horizontal=0;swimlaneFillColor=#dae8fc;" vertex="1" parent="pool1">
+          <mxGeometry x="20" y="0" width="1260" height="260" as="geometry" />
+        </mxCell>
+
+        <!-- LANE 2: Sistema -->
+        <mxCell id="lane2" value="Sistema" style="swimlane;html=1;startSize=20;horizontal=0;swimlaneFillColor=#d5e8d4;" vertex="1" parent="pool1">
+          <mxGeometry x="20" y="260" width="1260" height="300" as="geometry" />
+        </mxCell>
+
+        <!-- ===== LANE USUÁRIO ===== -->
+
+        <!-- Evento Inicial -->
+        <mxCell id="evStart" value="In&#237;cio&#10;(Novo cadastro)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="lane1">
+          <mxGeometry x="40" y="100" width="60" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Tarefa: Preencher formulário -->
+        <mxCell id="taskFill" value="Preencher formul&#225;rio" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="lane1">
+          <mxGeometry x="160" y="90" width="140" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Tarefa: Clicar em Salvar -->
+        <mxCell id="taskSave" value="Clicar em Salvar" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="lane1">
+          <mxGeometry x="360" y="90" width="140" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- ===== LANE SISTEMA ===== -->
+
+        <!-- Tarefa: Validar CPF -->
+        <mxCell id="taskValidate" value="Validar CPF" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="lane2">
+          <mxGeometry x="360" y="100" width="140" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Gateway: CPF válido? -->
+        <mxCell id="gwCpf" value="CPF v&#225;lido?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;verticalLabelPosition=top;verticalAlign=bottom;" vertex="1" parent="lane2">
+          <mxGeometry x="560" y="95" width="90" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- Caminho SIM -->
+        <mxCell id="taskSaveReg" value="Salvar Cadastro" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="lane2">
+          <mxGeometry x="710" y="100" width="140" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="taskSuccess" value="Exibir sucesso" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="lane2">
+          <mxGeometry x="910" y="100" width="140" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="evEndOk" value="Fim&#10;(Cadastro realizado)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=3;" vertex="1" parent="lane2">
+          <mxGeometry x="1110" y="110" width="60" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Caminho NÃO -->
+        <mxCell id="taskError" value="Exibir erro" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="lane2">
+          <mxGeometry x="710" y="220" width="140" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="evEndFail" value="Fim&#10;(Cadastro rejeitado)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=3;" vertex="1" parent="lane2">
+          <mxGeometry x="910" y="230" width="60" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- ===== CONEXÕES ===== -->
+
+        <!-- Início -> Preencher formulário -->
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="lane1" source="evStart" target="taskFill">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Preencher formulário -> Clicar em Salvar -->
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="lane1" source="taskFill" target="taskSave">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Clicar em Salvar -> Validar CPF (cruza lanes, parent = pool) -->
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="pool1" source="taskSave" target="taskValidate">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Validar CPF -> Gateway -->
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="lane2" source="taskValidate" target="gwCpf">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Gateway -> Salvar Cadastro (SIM) -->
+        <mxCell id="e5" value="Sim" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="lane2" source="gwCpf" target="taskSaveReg">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Salvar Cadastro -> Exibir sucesso -->
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="lane2" source="taskSaveReg" target="taskSuccess">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Exibir sucesso -> Fim (Cadastro realizado) -->
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="lane2" source="taskSuccess" target="evEndOk">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Gateway -> Exibir erro (NÃO) -->
+        <mxCell id="e8" value="N&#227;o" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="lane2" source="gwCpf" target="taskError">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Exibir erro -> Fim (Cadastro rejeitado) -->
+        <mxCell id="e9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="lane2" source="taskError" target="evEndFail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
