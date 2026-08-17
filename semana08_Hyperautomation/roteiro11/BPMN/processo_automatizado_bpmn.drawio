@@ -1,0 +1,126 @@
+<mxfile host="app.diagrams.net" modified="2026-08-11T00:00:00.000Z" agent="Claude" version="24.0.0" type="device">
+  <diagram name="Processo - Validação de Documentos" id="bpmn-validacao-docs">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="1500" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- START EVENT -->
+        <mxCell id="ev_start" value="Início" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="390" y="40" width="50" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- MAIN FLOW TASKS -->
+        <mxCell id="t1" value="Receber solicitação por e-mail" style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="335" y="130" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="t2" value="Validar assunto do e-mail" style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="335" y="230" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="t3" value="Baixar documentos" style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="335" y="330" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="t4" value="Verificar documentos recebidos" style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="335" y="430" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- GATEWAY 1 -->
+        <mxCell id="gw1" value="Documentação&#10;completa?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="375" y="535" width="80" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- NO BRANCH 1 (left) -->
+        <mxCell id="n1_t1" value="Classificar como pendente" style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="555" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="n1_t2" value="Mover para Documentos_Pendentes" style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="655" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="n1_t3" value="Enviar e-mail com motivo da pendência" style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="755" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ev_end1" value="Fim" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=3;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="115" y="855" width="50" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- MAIN FLOW CONTINUES (SIM) -->
+        <mxCell id="t5" value="Extrair dados" style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="335" y="660" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="t6" value="Validar nome, CPF, data e endereço" style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="335" y="760" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- GATEWAY 2 -->
+        <mxCell id="gw2" value="Dados&#10;válidos?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="375" y="865" width="80" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- NO BRANCH 2 (right) -->
+        <mxCell id="n2_t1" value="Classificar como pendente" style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="660" y="885" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="n2_t2" value="Mover para Documentos_Pendentes" style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="660" y="985" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="n2_t3" value="Responder ao cliente" style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="660" y="1085" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ev_end2" value="Fim" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=3;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="715" y="1185" width="50" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- SIM BRANCH FINAL -->
+        <mxCell id="t7" value="Classificar como aprovado" style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="335" y="990" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="t8" value="Mover para Documentos_OK" style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="335" y="1090" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="t9" value="Preencher Planilha Mestra" style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="335" y="1190" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="t10" value="Responder aprovação ao cliente" style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="335" y="1290" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ev_end3" value="Fim" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=3;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="390" y="1390" width="50" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- EDGES: main flow -->
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="ev_start" target="t1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="t1" target="t2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="t2" target="t3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="t3" target="t4"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="t4" target="gw1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- GATEWAY 1 branches -->
+        <mxCell id="e6" value="Não" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="gw1" target="n1_t1">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="140" y="575" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="n1_t1" target="n1_t2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="n1_t2" target="n1_t3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="n1_t3" target="ev_end1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="e10" value="Sim" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="gw1" target="t5"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="t5" target="t6"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="t6" target="gw2"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- GATEWAY 2 branches -->
+        <mxCell id="e13" value="Não" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="gw2" target="n2_t1">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="740" y="905" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="n2_t1" target="n2_t2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="n2_t2" target="n2_t3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="n2_t3" target="ev_end2"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="e17" value="Sim" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="gw2" target="t7"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="t7" target="t8"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="t8" target="t9"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="t9" target="t10"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="t10" target="ev_end3"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
